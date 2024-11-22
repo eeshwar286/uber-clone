@@ -17,7 +17,7 @@ function PaymentConfirmation() {
         className='object-cover mt-[-60px]'
         />
         <h2 className='font-bold 
-        text-[23px] mt-[-20px] mb-10'>Uber is Booked Successfully</h2>
+        text-[23px] mt-[-20px] mb-10'>Your Uber is on the way . . .</h2>
         <button className='p-2 bg-black text-white
         px-10 rounded-lg'
         onClick={()=>route.push('/')}
