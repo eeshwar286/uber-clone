@@ -17,9 +17,11 @@ function Payment() {
         currency:'usd'
     }
   return (
+    <Suspense fallback={<div>Loading...</div>}>
     <Elements stripe={stripePromise} options={options}>
         <CheckoutForm amount={amount}/>
     </Elements>
+    </Suspense>
   )
 }
 
