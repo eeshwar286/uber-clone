@@ -1,16 +1,21 @@
-import localFont from "next/font/local";
-import "./globals.css";
+// import localFont from "next/font/local";
+import { Inter,Montserrat } from 'next/font/google'
+import './globals.css'
+import { ClerkProvider } from '@clerk/nextjs'
+import Header from '../components/Header'
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+const inter=Montserrat({subsets:['latin']})
+
+// const geistSans = localFont({
+//   src: "./fonts/GeistVF.woff",
+//   variable: "--font-geist-sans",
+//   weight: "100 900",
+// });
+// const geistMono = localFont({
+//   src: "./fonts/GeistMonoVF.woff",
+//   variable: "--font-geist-mono",
+//   weight: "100 900",
+// });
 
 export const metadata = {
   title: "Create Next App",
@@ -19,12 +24,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+    <ClerkProvider>
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+        className={inter.className}>
+        <Header/>
         {children}
       </body>
     </html>
+    </ClerkProvider>
   );
 }
